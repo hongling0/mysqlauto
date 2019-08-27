@@ -1,15 +1,15 @@
-local _M={}
+local _M = {}
 
-_M.db=require "mysql.mysqlauto.db"
-_M.file=require "mysql.mysqlauto.file"
+_M.db = require "mysql.mysqlauto.db"
+_M.file = require "mysql.mysqlauto.file"
 
 function _M.newctx(opt)
     assert(opt.name)
     assert(opt.query)
     assert(opt.dir)
-    local ret={}
-    _M.db.newctx(ret,opt)
-    _M.file.newctx(ret,opt)
+    local ret = {}
+    _M.db.newctx(ret, opt)
+    _M.file.newctx(ret, opt)
     return ret
 end
 
