@@ -251,7 +251,7 @@ local function gensql(left, right)
     local cdict = array2dict(right.proc_list)
 
     for k in pairs(sdict) do
-        if not cdict then
+        if not cdict[k] then
             table.insert(ret, (string.format("drop procedure if exists `%s`", k)))
         else
             local sproc = left.proc[k]
@@ -269,7 +269,7 @@ local function gensql(left, right)
     local sdict = array2dict(left.func_list)
     local cdict = array2dict(right.func_list)
     for k in pairs(sdict) do
-        if not cdict then
+        if not cdict[k] then
             table.insert(ret, (string.format("drop function if exists `%s`", k)))
         else
             local sfunc = left.func[k]
